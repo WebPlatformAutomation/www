@@ -1,0 +1,13 @@
+{
+  "project": "Web Platform 4",
+  "outerHost": "www--webplatformautomation.hlx.live",
+  "host": "www.webplatform4.com",
+  "byocdn": true,
+  "plugins": [
+    {
+      "id": "library",
+      "title": "Library",
+      "event": "library-loaded"
+    }
+  ]
+}
