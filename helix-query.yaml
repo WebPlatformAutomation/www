@@ -10,6 +10,10 @@ indices:
         select: head > meta[name="author"]
         value: |
           attribute(el, 'content')
+      title:
+        select: head > meta[property="og:title"]
+        value: |
+          attribute(el, 'content')
       date:
         select: head > meta[name="publication-date"]
         value: |
@@ -26,12 +30,8 @@ indices:
         select: head > meta[name="category"]
         value: |
           attribute(el, 'content')
-      tags:
-        select: head > meta[property="article:tag"]
-        values: |
-          attribute(el, 'content')
-      robots:
-        select: head > meta[name="robots"]
+      topics:
+        select: head > meta[name="topics"]
         value: |
           attribute(el, 'content')
       lastModified:
