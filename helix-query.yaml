@@ -4,20 +4,12 @@ indices:
   www:
     include:
       - '/**'
-    target: query-index.xlsx
+    target: /query-index
     properties:
       author:
         select: head > meta[name="author"]
         value: |
           attribute(el, 'content')
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      h1:
-        select: main h1
-        value: |
-          textContent(el)
       date:
         select: head > meta[name="publication-date"]
         value: |
@@ -26,10 +18,6 @@ indices:
         select: head > meta[property="og:image"]
         value: |
           match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      imageAlt:
-        select: head > meta[property="og:image:alt"]
-        value: |
-          attribute(el, 'content')
       description:
         select: head > meta[name="description"]
         value: |
