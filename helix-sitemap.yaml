@@ -1,7 +1,7 @@
 version: 1
 
 sitemaps:
-  blog:
+  www:
     origin: https://www.webplatform4.com
     source: /query-index.json
     destination: /sitemap.xml
