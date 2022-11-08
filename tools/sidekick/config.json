@@ -11,6 +11,13 @@
   ],
   "plugins": [
     {
+      "id": "library",
+      "title": "Library",
+      "environments": [ "edit" ],
+      "event": "library",
+      "include_paths": [ "**.docx**" ]
+    },    
+    {
       "id": "translate",
       "title": "Translate",
       "environments": [ "edit" ],
