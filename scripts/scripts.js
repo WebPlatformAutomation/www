@@ -62,3 +62,34 @@ const { loadArea, loadDelayed, setConfig } = await import(`${miloLibs}/utils/uti
   await loadArea();
   loadDelayed();
 }());
+
+
+const library = ({ detail }) => {
+  const sk = detail.data;
+  console.log('Library');
+  //const domain = 'https://main--milo--adobecom.hlx.page';
+  //const { config } = s;
+  //const script = document.createElement('script');
+  //script.type = 'module';
+  //script.onload = () => {
+  //  const skEvent = new CustomEvent(
+  //    'hlx:library-loaded',
+  //     { detail: { domain, libraries: config.libraries } },
+  //  );
+  //  document.dispatchEvent(skEvent);
+  //};
+  //script.src = `${domain}/libs/ui/library/library.js`;
+  //document.head.appendChild(script);
+};
+
+const sk = document.querySelector('helix-sidekick');
+if (sk) {
+  // sidekick already loaded
+  sk.addEventListener('custom:library', library);
+} else {
+  // wait for sidekick to be loaded
+  document.addEventListener('helix-sidekick-ready', () => {
+    document.querySelector('helix-sidekick')
+      .addEventListener('custom:library', library);
+  }, { once: true });
+}
