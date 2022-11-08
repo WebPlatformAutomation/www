@@ -63,6 +63,7 @@ const { loadArea, loadDelayed, setConfig } = await import(`${miloLibs}/utils/uti
   loadDelayed();
 }());
 
+console.log('Load scripts.js');
 
 const library = ({ detail }) => {
   const sk = detail.data;
