@@ -13,9 +13,7 @@
     {
       "id": "library",
       "title": "Library",
-      "environments": [ "edit" ],
-      "event": "library",
-      "include_paths": [ "**.docx**" ]
+      "event": "library"
     },    
     {
       "id": "translate",
