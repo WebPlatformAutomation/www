@@ -3,12 +3,6 @@
   "outerHost": "www--webplatformautomation.hlx.live",
   "host": "www.webplatform4.com",
   "byocdn": true,
-  "libraries": [
-    {
-      "text": "Blocks",
-      "paths": ["https://main--milo--adobecom.hlx.page/docs/library/blocks.json"]
-    }
-  ],
   "plugins": [
     {
       "id": "library",
@@ -16,7 +10,7 @@
       "environments": [ "edit" ],
       "isPalette": true,
       "paletteRect": "top: auto; bottom: 20px; left: 20px; height: 398px; width: 360px;",
-      "url": "/tools/library?martech=off",
+      "url": "https://main--milo--adobecom.hlx.page/tools/library?martech=off",
       "includePaths": [ "**.docx**" ]
     }
   ]
