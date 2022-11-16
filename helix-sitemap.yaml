@@ -3,8 +3,5 @@ version: 1
 sitemaps:
   www:
     origin: https://www.webplatform4.com
-    lastmod: YYYY-MM-DD
-    languages:
-      en:
-        source: /query-index.json
-        destination: /sitemap.xml
+    source: /query-index.json
+    destination: /sitemap.xml
