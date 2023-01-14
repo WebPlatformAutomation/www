@@ -4,8 +4,13 @@
   "version": "1.0.0",
   "description": "Website foundation technology.",
   "scripts": {
-    "test": "wtr \"./test/**/*.test.js\" --node-resolve --port=2000 --coverage",
-    "test:watch": "npm test -- --watch",
+    "postinstall": "serenity-bdd update",
+    "clean": "rimraf target",
+    "test": "failsafe clean test:execute test:report",
+    "test:execute": "node run",
+    "test:report": "serenity-bdd run --features ./features",
+    "test0": "wtr \"./test/**/*.test.js\" --node-resolve --port=2000 --coverage",
+    "test0:watch": "npm test -- --watch",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint .",
     "lint:css": "stylelint 'blocks/**/*.css' 'styles/*.css'"
@@ -20,10 +25,21 @@
     "url": "https://github.com/adobecom/college/issues"
   },
   "homepage": "https://github.com/adobecom/college#readme",
-  "devDependencies": {
-    "@babel/core": "7.17.7",
-    "@babel/eslint-parser": "7.17.0",
+  "dependencies": {
+    "@babel/core": "7.20.5",
+    "@babel/eslint-parser": "7.19.1",
+    "@babel/preset-env": "7.20.2",
+    "@babel/register": "^7.18.9",
+    "@cucumber/cucumber": "^8.9.1",
     "@esm-bundle/chai": "4.3.4-fix.0",
+    "@serenity-js/assertions": "^3.0.0-rc.32",
+    "@serenity-js/console-reporter": "^3.0.0-rc.32",
+    "@serenity-js/core": "^3.0.0-rc.32",
+    "@serenity-js/cucumber": "^3.0.0-rc.32",
+    "@serenity-js/playwright": "^3.0.0-rc.32",
+    "@serenity-js/rest": "^3.0.0-rc.32",
+    "@serenity-js/serenity-bdd": "^3.0.0-rc.32",
+    "@serenity-js/web": "^3.0.0-rc.32",
     "@web/dev-server-import-maps": "^0.0.6",
     "@web/test-runner": "0.13.27",
     "@web/test-runner-commands": "0.6.1",
@@ -31,9 +47,20 @@
     "eslint": "8.11.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-plugin-import": "2.25.4",
+    "is-ci": "^3.0.1",
+    "node-html-parser": "^6.1.4",
+    "node-vault": "^0.9.22",
+    "npm-failsafe": "^0.4.3",
+    "playwright": "^1.26.1",
+    "rimraf": "^3.0.2",
     "sinon": "13.0.1",
     "stylelint": "14.6.0",
     "stylelint-config-prettier": "9.0.3",
-    "stylelint-config-standard": "25.0.0"
+    "stylelint-config-standard": "25.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4",
+    "url-join": "^4.0.1",
+    "xml-js": "^1.6.11",
+    "yarg": "1.0.8"
   }
 }
