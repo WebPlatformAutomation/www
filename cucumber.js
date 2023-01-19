@@ -10,7 +10,7 @@ module.exports = {
     publishQuiet: true,
     requireModule: ['@babel/register'],
     format: ['@serenity-js/cucumber'],
-    require: ['./features/**/*.steps.js', './features/**/*.config.js'],
+    require: ['./features/**/*.steps.js', './features/**/*.config.js', './features/**/*page.js', './features/**/*section.js', './features/support/*.js', './features/tasks/*.js'],
     worldParameters: {
     },
   },
