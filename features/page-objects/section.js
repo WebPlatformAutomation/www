@@ -1,8 +1,45 @@
+import { By, PageElements } from "@serenity-js/web";
+
 export class Section {
   /**
    * Constructor
    */
   constructor() {}
+
+  /**
+   * Find the displayed element
+   * @param {string} selector XPath or CSS selector of the element
+   * @return {object} Displayed element or undefined if not found
+   */
+  displayed$(selector) {
+    let elements = PageElements.located(By.xpath(selector));
+    console.log(elements.length);
+    elements.forEach(elt => {
+      if(elt.isPresent()) { console.log(elt);  } 
+    });
+
+    return elements.length > 0 ? elements[0] : undefined;
+  }
+  
+  /**
+   * Find the nth displayed element
+   * @param {string} selector XPath or CSS selector of the element
+   * @param {string} nth nth visible element
+   * @return {object} Displayed element or undefined if not found
+   */
+   nth_displayed$(selector, nth) {
+    let elements = PageElements.located(selector).filter(x => x.isVisible());
+    return elements.length > 0 ? elements[nth] : undefined;
+  }
+
+  /**
+   * Find the displayed elements
+   * @param {string} selector XPath or CSS selector of the elements
+   * @return {object[]} Array of displayed elements
+   */
+  displayed$$(selector) {
+    return PageElements.located(selector).filter(x => x.isVisible());
+  }
 
   /**
    * Build element properties for a page object

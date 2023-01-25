@@ -9,13 +9,15 @@
 function localize(obj) {
     if (Array.isArray(obj)) {
       return obj.map(x => localize(x));
-    }
-    
-    if (browser.config.localeText && obj in browser.config.localeText) {
-      return browser.config.localeText[obj];
     } else {
       return obj;
     }
+    
+    // if (browser.config.localeText && obj in browser.config.localeText) {
+    //   return browser.config.localeText[obj];
+    // } else {
+    //   return obj;
+    // }
   };
   
   export default localize;
