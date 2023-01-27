@@ -1,5 +1,5 @@
 import { Given, Then, When } from '@cucumber/cucumber';
-import { Click, PageElement, By, isVisible, isClickable } from '@serenity-js/web';
+import { Click, PageElement, By, isVisible, isClickable, PageElements } from '@serenity-js/web';
 import { actorCalled, Duration, Wait } from "@serenity-js/core";
 import localize from '../../support/localize';
 import { QuizRecommender } from '../page-objects/cc_quizrecommender_page';
@@ -7,8 +7,10 @@ import ClickAnswer from "../tasks/cc.tasks";
 
 Then(/^I select each quiz recommender answer "([^\"]*)"$/, async function (answers) {
     //let page = new QuizRecommender();
-    console.log(answers.split(">").length + " Questions");
-    await answers.split(">").forEach(answer => {
+    answers = answers.split(">").map(x => x.trim());
+    console.log(answers);
+    for (let i in answers) {
+      let answer = answers[i];
       if (answer.includes("+")) {
           answer.split("+").forEach(option => {
           option = localize(option.trim());
@@ -19,17 +21,20 @@ Then(/^I select each quiz recommender answer "([^\"]*)"$/, async function (answe
           // );
           })
       } else {
-          answer = localize(answer.trim());
-          console.log("Answered: " + answer.trim());
-          actorCalled('I').attemptsTo(
-            Wait.for(Duration.ofSeconds(10)),
-            Click.on(PageElement.located(By.xpath(`//div[@class="quiz-options"]//*[@aria-label="${answer}"]`))),
-            Wait.upTo(Duration.ofSeconds(10)).until(PageElement.located(By.css('.quiz-action-container button')), isClickable()),
-            Click.on(PageElement.located(By.css('.quiz-action-container button'))),
-            Wait.for(Duration.ofSeconds(10)),
+          answer = localize(answer);
+          console.log("Answered: " + answer);
+          let elem = PageElement.located(By.xpath(`//div[@class="quiz-options"]//*[@aria-label="${answer}"]`));
+          let nextButton = PageElements.located(By.css('.quiz-action-container button')).nth(i);
+          await actorCalled('I').attemptsTo(
+            Wait.upTo(Duration.ofSeconds(10)).until(elem, isVisible()),
+            Wait.for(Duration.ofSeconds(3)),
+            Click.on(elem),
+            Wait.upTo(Duration.ofSeconds(10)).until(nextButton, isClickable()),
+            Wait.for(Duration.ofSeconds(1)),
+            Click.on(nextButton)
           );
-    } 
-  });
+      } 
+    }
 });
 
 Then(/^I should see quiz recommender single result title is "([^\"]*)"$/, iCheckQuizRecommenderSingleResultTitle);
