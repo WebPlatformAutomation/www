@@ -9,9 +9,9 @@ Feature: [E2E][CC Uber App Recommender v2.1]
         And I should see quiz recommender single result title is "Adobe Express"
         
         Examples:
-        | Answers                                								   	  | Result 														 		|
-		| Photography > Edit quickly and customize templates > Neither apply    | cc:app-reco&selectedOptions=CCX/category_photo/plan_personal 		| 
-		#| Video > Using templates to create content fast > Personal projects 		  | cc:app-reco&selectedOptions=CCX/category_video/plan_personal 		| 
+        | Answers                                								   	            | Result 														 		|
+		    | Photography > Edit quickly and customize templates > Neither apply    | cc:app-reco&quiz=UARv2&selectedOptions=category_photo/CCX/plan_personal 		| 
+		    | Video > Edit quickly and customize templates > Neither apply  		    | cc:app-reco&quiz=UARv2&selectedOptions=category_video/CCX/plan_personal 		| 
 		#| Graphic design > Using templates to create content fast > Personal projects | cc:app-reco&selectedOptions=CCX/category_design/plan_personal 		| 
 		#| Illustration > Using templates to create content fast > Personal projects   | cc:app-reco&selectedOptions=CCX/category_illustration/plan_personal | 
 		#| PDFs > Using templates to create content fast > Personal projects 		  | cc:app-reco&selectedOptions=CCX/category_pdf/plan_personal 			| 

@@ -1,4 +1,4 @@
-import { By, PageElement } from "@serenity-js/web";
+import { By, PageElement, PageElements } from "@serenity-js/web";
 import { classes } from 'polytype';
 import { Section } from '../../page-objects/section';
 import { CcBasePage } from './cc_base_page';
@@ -25,17 +25,24 @@ import { CcBasePage } from './cc_base_page';
    * @param {string} answer answer text
    */
     getQuizRecommenderAnswerByText(answer) {
-      let app_card = `//div[@class="quiz-options"]//*[@aria-label="${ answer }"]`;
-      return this.displayed$(app_card);
+      return PageElement.located(By.xpath(`//div[@class="quiz-options"]//*[@aria-label="${ answer }"]`));
     }
 
   /**
    * Click next button
    * @param {string} nthAnswer nth answer
    */
-  clickNextButton() {
-    this.displayed$('.quiz-action-container button').click();
-  }
+    getNextButton(number) {
+      return PageElements.located(By.css('.quiz-action-container button')).nth(number);
+    }
+  
+    /**
+    * Click next button
+   * @param {string} nthAnswer nth answer
+   */
+    getResultButton() {
+      return PageElement.located(By.css('[aria-label="Get your results"]'));
+    }
 
   /**
    * Click 'nth' Card
