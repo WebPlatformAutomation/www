@@ -23,6 +23,8 @@
   "devDependencies": {
     "@babel/core": "7.17.7",
     "@babel/eslint-parser": "7.17.0",
+    "@babel/preset-env": "7.20.2",
+    "@babel/register": "7.17.0",
     "@esm-bundle/chai": "4.3.4-fix.0",
     "@web/dev-server-import-maps": "^0.0.6",
     "@web/test-runner": "0.13.27",
@@ -31,6 +33,7 @@
     "eslint": "8.11.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-plugin-import": "2.25.4",
+    "platform-ui-automation": "^0.0.3",
     "sinon": "13.0.1",
     "stylelint": "14.6.0",
     "stylelint-config-prettier": "9.0.3",

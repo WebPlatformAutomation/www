@@ -1,25 +1,67 @@
-# Milo goes to college
-Use this project template to create a Milo site.
+# Demo project for Platform-UI
 
-## Steps
-1. Copy content folder
-2. Click "Use this template" on this project.
-3. Add the Helix Bot to your new project.
-4. Change your fstab.yaml file to point to your content.
-5. Add this project to the Helix Sidekick.
-6. Start creating your content.
+## Install Platform-UI
 
-## Developing
-1. Install the [Helix CLI](https://github.com/adobe/helix-cli): `sudo npm install -g @adobe/helix-cli`
-1. Run `hlx up` this repo's folder. (opens your browser at `http://localhost:3000`)
-1. Open this repo's folder in your favorite editor and start coding.
-
-## Testing
-```sh
-npm run test
 ```
-or:
-```sh
-npm run test:watch
+npm install platform-ui-automation --save-dev
 ```
-This will give you several options to debug tests. Note: coverage may not be accurate.
+
+## Create Test Directory and Profiles
+
+The test directory `test/e2e` has the configuration for profiles:
+
+```
+dev: 
+  baseUrl: http://localhost:3000
+
+preview: 
+  baseUrl: https://${branch}--www--webplatformautomation.hlx.page
+
+live: 
+  baseUrl: https://${branch}--www--webplatformautomation.hlx.live
+
+prod: 
+  baseUrl: https://www.webplatform4.com
+
+acom:
+  baseUrl: https://www.adobe.com
+```
+
+## Run tests in the feature directory
+
+Use the profile `acom` to run test with the tag @id-1.
+```
+npx run test/e2e -p acom -t @id-1
+```
+
+## Run test scripts in content
+
+The page under test is https://www.webplatform4.com/example.
+
+The test script is in https://www.webplatform4.com/example-test.
+
+Test `example` page on the local dev server. Use `hlx up` to start up the server.
+
+```
+npx run test/e2e -g example -p dev
+```
+
+Test `example` page on the Franlin preview
+
+```
+npx run test/e2e -g example -p preview
+```
+
+Test `example` page on the Franlin live
+
+```
+npx run test/e2e -g example -p live
+```
+
+Test `example` page on the production
+
+```
+npx run test/e2e -g example -p prod
+```
+
+Note: The directory `features/site` is created to store downloaded test scenarios. It's safe to delete it. Don't create new Cucumber scripts in the directory.  

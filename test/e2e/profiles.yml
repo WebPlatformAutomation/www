@@ -1,0 +1,17 @@
+---
+default: -p prod -b chromium --headless false
+
+dev: 
+  baseUrl: http://localhost:3000
+
+preview: 
+  baseUrl: https://${branch}--www--webplatformautomation.hlx.page
+
+live: 
+  baseUrl: https://${branch}--www--webplatformautomation.hlx.live
+
+prod: 
+  baseUrl: https://www.webplatform4.com
+
+acom:
+  baseUrl: https://www.adobe.com
