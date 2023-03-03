@@ -29,30 +29,30 @@ acom:
 
 ## Run tests in the feature directory
 
-Use the profile `acom` to run test with the tag @id-1.
+Use the profile `acom` to run tests with the tag @id-1.
 ```
 npx run test/e2e -p acom -t @id-1
 ```
 
 ## Run test scripts in content
 
-The page under test is https://www.webplatform4.com/example.
+For example, the page under test is https://www.webplatform4.com/example.
 
 The test script is in https://www.webplatform4.com/example-test.
 
-Test `example` page on the local dev server. Use `hlx up` to start up the server.
+Test `example` page on the local dev server.
 
 ```
 npx run test/e2e -g example -p dev
 ```
 
-Test `example` page on the Franlin preview
+Test `example` page on the Franklin preview
 
 ```
 npx run test/e2e -g example -p preview
 ```
 
-Test `example` page on the Franlin live
+Test `example` page on the Franklin live
 
 ```
 npx run test/e2e -g example -p live
@@ -64,4 +64,4 @@ Test `example` page on the production
 npx run test/e2e -g example -p prod
 ```
 
-Note: The directory `features/site` is created to store downloaded test scenarios. It's safe to delete it. Don't create new Cucumber scripts in the directory.  
+Note: The directory `features/site` is created to store downloaded test scenarios. It's safe to delete it. Don't create new Cucumber scripts in the directory. For more run command options, see [Platform-UI repo](https://github.com/WebPlatformAutomation/Platform-UI).
