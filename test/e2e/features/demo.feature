@@ -13,3 +13,10 @@ Feature: Platform-UI Automation Demo
      Then I enter "pizza" into the element "//input[@name='q']"
      Then I should see the address bar contains "https://www.google.com/search"
      Then I should see "pizza" in the page content
+
+  @id-3
+  Scenario: Verify Adobe App Launcher
+    Given I go to Adobe home page
+     Then I should not see the app launcher
+     When I sign in AdobeID
+     Then I should see the app launcher     

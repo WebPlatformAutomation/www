@@ -65,3 +65,12 @@ npx run test/e2e -g example -p prod
 ```
 
 Note: The directory `features/site` is created to store downloaded test scenarios. It's safe to delete it. Don't create new Cucumber scripts in the directory. For more run command options, see [Platform-UI repo](https://github.com/WebPlatformAutomation/Platform-UI).
+
+## Use Step Definition Library
+
+The test scenario `@id-3` in `test/e2e` is a demo for using a step definition library. It needs the profile `acom` to run it.
+```
+npx run test/e2e -t @id-3 -p acom
+```
+
+
