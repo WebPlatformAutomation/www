@@ -12,5 +12,8 @@ jobs:
       - name: 'Install NPM modules'
         run: npm install
 
-      - name: 'Run tests'  
-        run: npx run test/e2e -t @id-1 -h --noHeadlessUserAgent 
+      - name: 'Run tests'
+        run: npx run test/e2e -t @id-3 -p acom -h --noHeadlessUserAgent 
+        env:
+          ADOBEID_USERNAME: ${{ secrets.ADOBEID_USERNAME }}
+          ADOBEID_PASSWORD: ${{ secrets.ADOBEID_PASSWORD }}
