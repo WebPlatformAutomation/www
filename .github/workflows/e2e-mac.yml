@@ -30,7 +30,7 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npx run test/e2e -t @id-3 -p acom -h --noHeadlessUserAgent 
+        run: npx run test/e2e -t @id-3 -p acom -h -b webkit 
         env:
           ADOBEID_USERNAME: ${{ secrets.ADOBEID_USERNAME }}
           ADOBEID_PASSWORD: ${{ secrets.ADOBEID_PASSWORD }}
