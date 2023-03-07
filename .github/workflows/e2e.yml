@@ -1,0 +1,16 @@
+name: 'E2E Test'
+on: [push, pull_request]
+jobs:
+  ubuntu-job:
+    name: 'E2E Test on Ubuntu'
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: 'Checkout the repository'
+        uses: actions/checkout@v2
+
+      - name: 'Install NPM modules'
+        run: npm install
+
+      - name: 'Run tests'  
+        run: npx run test/e2e -t @id-1  
