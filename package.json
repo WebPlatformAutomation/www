@@ -37,7 +37,7 @@
     "stylelint": "14.6.0",
     "stylelint-config-prettier": "9.0.3",
     "stylelint-config-standard": "25.0.0",
-    "platform-ui-automation": "^0.0.4",
-    "platform-ui-lib-adobe": "^0.0.1"    
+    "platform-ui-automation": "^0.0.5",
+    "platform-ui-lib-adobe": "^0.0.2"    
   }
 }
