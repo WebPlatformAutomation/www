@@ -2,6 +2,7 @@ on:
   repository_dispatch:
     types:
       - resource-published
+      - resource-previewed
 jobs:
   print:
     runs-on: ubuntu-latest
